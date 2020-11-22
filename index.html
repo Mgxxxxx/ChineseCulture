@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./logo.png" type="image/x-icon" />
+    <title>中华传统文化</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <gate v-if="gateShow"></gate>
+        <transition name="fade">
+            <div class="content" v-if="homeShow" ref="content">
+                <header>
+                    <h1>中华传统文化</h1>
+                </header>
+                <main>
+                    <aside>
+                        <router-view name="aside" v-slot="{Component}">
+                            <transition name="translateY">
+                                <component :is="Component" />
+                            </transition>
+                        </router-view>
+                    </aside>
+                    <article>
+                        <router-view v-slot="{Component}">
+                            <transition name="translateX">
+                                <component :is="Component" />
+                            </transition>
+                        </router-view>
+                    </article>
+                    <nav>
+                        <ul class="navBox">
+                            <li v-for="(item,index) in navItem" @click="navClick(index)">
+                                <div class="mainTitle" :class="{activeNav:curItem===index}">{{item.main}}</div>
+                                <ul class="subItem" :class="{activeItem:curItem===index}">
+                                    <li v-for="(subItem,subIndex) in item.sub" @click.stop="subClick(subIndex)"
+                                        :class="{activeSubItem:curSubItem===subIndex}">
+                                        {{subItem}}
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </main>
+            </div>
+        </transition>
+    </div>
+
+    <!-- gate视图组件 -->
+    <template id="gateCpn">
+        <div class="gate">
+            <div @click="click" ref="go">
+                <div class="cover"></div>GO
+            </div>
+            <div class="gatel" :style="isClick?gatelStyle:''"></div>
+            <div class="gater" :style="isClick?gaterStyle:''"></div>
+        </div>
+    </template>
+
+    <!-- 主内容视图组件 -->
+    <template id="containerCpn">
+        <div class="container">
+            <h1 class="summary">
+                {{summary}}
+            </h1>
+            <hr />
+            <router-view v-slot="{Component}">
+                <transition name="subFade">
+                    <component :is="Component" />
+                </transition>
+            </router-view>
+        </div>
+    </template>
+
+    <!-- 子内容视图组件 -->
+    <!-- 书法视图及中国画视图 -->
+    <template id="subContainerCpn">
+        <div class="subContainer">
+            <div class="subSummary">
+                <div class="subimg">
+                    <img :src="subImgSrc" alt="">
+                </div>
+                <div class="subsum">
+                    {{subSum}}
+                </div>
+            </div>
+            <hr />
+            <div class="exhibition">
+                <h1 class="ehbtTitle">{{ehbtTitle}}</h1>
+                <div class="exhibiContent" ref="exhibiContent">
+                    <div class="exhibi" v-for="item in exhibitions" @click.stop="exhibiClick(item)">
+                        <div class="exhibiImg" :style="{backgroundImage: 'url('+item.imgSrc+')'}">
+                            <!-- <img :src="item.imgSrc" alt=""> -->
+                        </div>
+                        <div class="exhibiDesc">{{item.desc}}</div>
+                    </div>
+                    <div class="bigExhibi" class="bigExhibi" v-show="bigShow" @click.stop="bigShow=false">
+                        <div class="bigExhibiImg">
+                            <img :src="bigExhibi.imgSrc" alt="">
+                        </div>
+                        <div class="bigExhibiDesc">{{bigExhibi.desc}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- 诗词曲赋视图 -->
+    <template id="subContainerCpn1">
+        <div class="subContainer">
+            <div class="subSummary">
+                <div class="subimg">
+                    <img :src="subImgSrc" alt="">
+                </div>
+                <div class="subsum">
+                    {{subSum}}
+                </div>
+            </div>
+            <hr />
+            <div class="exhibition1" ref="exhibition1">
+                <h1 ref="exbibiTitle">{{exbibiTitle}}</h1>
+                <div class="exhibiContent1" v-for="exhibi in exhibitions">
+                    <div class="exhibi1">
+                        <!-- <div class="beRa"></div> -->
+                        <h3 class="exhibiTitle">{{exhibi.title}}</h3>
+                        <h4 class="authorInfo">{{exhibi.authorInfo}}</h4>
+                        <p class="sentence" v-for="item in split(exhibi.sentence)">{{item}}</p>
+                        <!-- <div class="afRa"></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- 传统节日视图 -->
+    <template id="subContainerCpn2">
+        <div class="subContainer">
+            <div class="fsItem" v-for="item in fsItems">
+                <div>
+                    <a :href="item.link" target="blank">
+                        <img :src="item.imgSrc" alt="">
+                    </a>
+                </div>
+                <div>{{item.desc}}</div>
+            </div>
+        </div>
+    </template>
+
+
+
+    <script src="./lib/vue@next.js"></script>
+    <script src="./lib/vue-router@next.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

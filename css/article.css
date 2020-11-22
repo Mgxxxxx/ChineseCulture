@@ -1,0 +1,35 @@
+@import url(./container.css);
+article {
+  /* background-color: #795548; */
+  /* color: #fff; */
+  flex: 1;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* article h2 {
+    height: 2000px;
+} */
+
+.container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.translateX-enter-active,
+.translateX-leave-active {
+  transition: all 1s ease;
+}
+
+.translateX-enter-from {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.translateX-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
+}

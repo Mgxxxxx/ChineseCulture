@@ -1,0 +1,52 @@
+nav {
+  /* background-color: #ff9800; */
+  flex-basis: 15%;
+  min-height: 92vh;
+}
+
+.navBox {
+    position: fixed;
+    top: 50%;
+    right: -1rem;
+    width: 15%;
+    transform: translate(0,-50%);
+}
+
+.navBox>li {
+    display: block;
+    text-align: left;
+    font-family: 'wang';
+    font-size: 1.6rem;
+    margin: 3rem 0;
+    cursor: pointer;
+}
+
+.subItem {
+  padding-left: 2.4rem;
+  font-size: 1.2rem;
+  display: none;
+}
+
+.activeNav,
+.activeSubItem {
+  color: #cc8e35;
+}
+
+.activeItem {
+  display: block;
+}
+
+.slideY-enter-active,
+.slideY-leave-active {
+  transition: all 1s ease;
+}
+
+.slideY-enter-from {
+  opacity: 0;
+  height: 0;
+}
+
+.slideY-leave-to {
+  opacity: 0;
+  height: 0;
+}

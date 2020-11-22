@@ -1,0 +1,66 @@
+.gate {
+    perspective: 2000px;
+}
+
+.gate>div:first-child {
+    width: 4rem;
+    height: 2rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    border: 0.15rem solid white;
+    border-radius: 0.2rem;
+    text-align: center;
+    color: white;
+    font-weight: 100;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    margin-top: 50vh;
+    transform: translate(-50%,-50%);
+    z-index: 222;
+    overflow: hidden;
+    padding: 0;
+}
+
+.gate>div:first-child>.cover {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: #ececec80;
+    display: block;
+    content: '';
+    position: absolute;
+    right: 100%;
+    margin-top: -6rem;
+    transition: all 1s;
+}
+
+.gate>div:first-child:hover .cover {
+    right: -50%;
+    margin-top: -3rem;
+}
+
+.gatel,
+.gater {
+    width: 50%;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transition: all 5s;
+    position: absolute;
+    top: 0;
+    z-index: 111;
+}
+
+.gatel {
+    background-image: url(../img/gate/gatel.jpg);
+    /* float: left; */
+    left: 0;
+    transform-origin: left;
+}
+.gater {
+    background-image: url(../img/gate/gater.jpg);
+    /* float: right; */
+    right: 0;
+    transform-origin: right;
+}

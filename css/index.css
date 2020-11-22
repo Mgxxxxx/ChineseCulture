@@ -1,0 +1,57 @@
+@import url(./gateCpn.css);
+@import url(./article.css);
+@import url(./nav.css);
+@import url(./aside.css);
+@font-face {
+    font-family: 'wang';
+    src: url(../font/王羲之书法字体.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    background-color: #e1e0c7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* overflow: hidden; */
+    font-family: Baskerville, Georgia, "Liberation Serif", "Kaiti SC", STKaiti, "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, DFKai-SB, "TW\-Kai", serif, simsun;
+    position: relative;
+}
+
+ul {
+    list-style: none;
+}
+
+header,
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+header {
+  /* background-color: #2196f3; */
+  min-height: 8vh;
+  font-family: 'wang';
+}
+
+main {
+  /* background-color: #f4f4f4; */
+  /* color: #444; */
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  /* height: 2000px; */
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+

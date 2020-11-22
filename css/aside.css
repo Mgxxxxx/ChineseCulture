@@ -1,0 +1,58 @@
+aside {
+  /* background-color: #ffeaa7; */
+  color: #fff;
+  flex-basis: 15%;
+  min-height: 92vh;
+}
+
+aside h1 {
+    width: 15%;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+aside .hwAside {
+    background-image: url(../img/aside/书法.PNG);
+}
+
+aside .paintAside {
+    background-image: url(../img/aside/中国画.PNG);
+}
+
+aside .poetryAside {
+    background-image: url(../img/aside/诗词曲赋.PNG);
+}
+
+aside .fsAside {
+    background-image: url(../img/aside/传统节日.PNG);
+}
+
+.translateY-enter-active,
+.translateY-leave-active {
+  transition: all 1s ease;
+}
+
+.translateY-enter-from {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.translateY-leave-to {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
